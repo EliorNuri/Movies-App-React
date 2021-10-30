@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+
+html{
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    background-color: var(--color-primary);
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0px;
+    padding: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button{
+    font-family: open-sans-bold,-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.click{
+    cursor: pointer;
+}
+
+.profile-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.514);
+    margin-right: 8px;
+    @include bg-img-default;
+}

@@ -1,0 +1,15 @@
+@import './setup/typo';
+@import './setup/vars';
+@import './setup/func';
+@import './setup/mixin';
+
+@import './basic/base';
+@import './basic/helpers';
+@import './basic/layout';
+
+@import './cmps/homepage';
+@import './cmps/hero';
+@import './cmps/moviesList';
+@import './cmps/row';
+@import './cmps/movieDetails';
+@import './cmps/header';

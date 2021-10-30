@@ -1,0 +1,118 @@
+.hero{
+    height: 75vh;
+    width: 100%;
+    min-height: 470px;
+    & > * {
+        height: 100%;
+    }
+    .content{
+        width: 35%;
+        min-width: 350px;
+        color: var(--color-secondary);
+        padding-top: 140px;
+        padding-left: 20px;
+        padding-right: 10px;
+
+        h2{
+            font-size: 3rem;
+        }
+        h6{
+            margin: 5px 0px;
+            & >span:nth-child(2){
+                margin-left: 10px;
+            }   
+            &+div{
+                margin:8px 0px 8px 8px;
+            }
+        }
+        h6.movie-info{
+            color: var(--color-feature)
+        }
+        p{
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hero-btns-container{
+            font-weight: bolder;
+            margin-top: 2em;
+            //Heros Btns
+            & > div{
+                font-size: 0.8rem;
+                text-align: center;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                font-weight: 700;
+                border-radius: 2px;
+                background-color: var(--color-secondary);
+                color: black;
+                padding: .5rem 2rem;
+                &:first-child{
+                    color: white;
+                    background-color: var(--color-logo);
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    .img{
+        position: relative;
+        width: 65%;
+        @include bg-img-default;
+        & > * {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        & .fade-left{
+            left: 0;
+            top: 0;
+            background-image: linear-gradient(90deg,#111 0,#ffffff00 50%);
+        }   
+        & .fade-bottom{
+            left: 0;
+            bottom: 0;
+            background-image: linear-gradient(0deg,#111 0,#0f171e00 50%);
+
+
+        }
+    }
+}
+
+@media (max-width:550px) {
+    .hero{
+        height: 82vh;
+        .content{
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            min-width: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+            height: auto;
+            h2{
+                font-size: 2.7rem;
+            }
+        }
+        .img{
+            width: 100vw;
+            position: absolute;
+            opacity: 0.4;
+            z-index: -1;
+            & .fade-left{
+                left: 0;
+                top: 0;
+                background-image: linear-gradient(90deg,#111 0,#ffffff00 50%,#111 100%);
+            }   
+            & .fade-bottom{
+                left: 0;
+                bottom: 0;
+                background-image: linear-gradient(0deg,#111 0,#0f171e00 50%,rgba(17, 17, 17, 0.479) 100%);
+    
+    
+            }
+        }
+    }
+}

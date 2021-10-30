@@ -1,0 +1,260 @@
+.movie-details-container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-color: #fefefe;
+    display: grid;
+    place-items: center;
+    background-color: #111;
+    overflow-y: hidden;
+    position: relative;
+}
+.gallery-wrapper{
+    width: 50vw;
+    height: 60vh;
+    position: relative;
+    perspective: 600px;
+    //  overflow: hidden; 
+}
+
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    font-size: 40px;
+    background-size: cover;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    display: none;
+    transition: all 0.3s ease-in-out;
+    transform: translateZ(-400px) rotateY(10);
+    box-shadow: 0px 50px 70px rgba(0,0,0,0.4),
+                0px 10px 10px rgba(0,0,0,0.1);
+
+    h4{
+        opacity: 1;
+        font-size: 30px;
+        color: rgba(252, 6, 6, 0.699);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .info-wrapper{
+        position: absolute;
+        right: 10px; 
+        bottom: 10px;
+        color: var(--color-feature);
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .slide-screen{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.781);
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform:rotateY(180deg);
+        color: var(--color-secondary);
+        padding: 20px 15px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        opacity: 0;
+        transition: transform 0.2s linear, opacity 0.4s ease-in;
+        h3{
+            font-size: 1.3rem;
+        }
+        h6{
+            font-size: 0.8rem;
+            color: var(--color-feature);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            span:not(:first-child){
+                margin-left: 10px;
+            }
+        }
+        p{
+            font-size: 1rem;
+        }
+        .categorey-wrapper{
+            margin: 0px 10px px 0px;
+            span{
+                padding: 5px 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                border-radius: 10px;
+                background-color: var(--color-secondary);
+                color: var(--color-primary);
+                font-weight: bold;
+                font-size: 0.8rem;
+                
+            }
+        }
+    }
+
+}
+
+
+.slide::before{
+    content: '';
+    background-image: inherit;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: -41%;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 100% ;
+    /* transform-origin: top; */
+    transform: rotateX(180deg) ;
+    opacity: 0.4;
+}
+
+.slide::after{
+    content: '';
+    height: 42%;
+    width: 100%;
+    position: absolute;
+    bottom: -42%;
+    left: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.404) , #111);
+}
+
+
+.fade{
+    /* transition: 0.3 all; */
+    animation: fade 0.6s ease-in;
+}
+
+
+.slide.active {
+    display: block;
+    transform: translateZ(-100px);
+    z-index: 10;
+}
+
+.slide.flip{
+    transform: rotateY(180deg);
+}
+
+.slide.flip .slide-screen{
+    opacity: 1;
+}
+
+.slide.flip .info-wrapper, .slide.flip h4 {
+    transform: rotateY(180deg);
+}
+.slide.flip .info-wrapper {
+    left: 10px;
+    right: 0px;
+    justify-content: flex-end;
+
+}
+
+
+.prev{
+    left: -100%;
+    display: block;
+    transform: rotateY(30deg) translateZ(-350px);
+}
+
+.next{
+    left: 100%;
+    display: block;
+    transform: rotateY(-30deg) translateZ(-350px);
+}
+
+.bullets-container{
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bullets-container span{
+    border-radius: 200px;
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    z-index: 10;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.bullets-container .active-dot{
+    background-color: white;
+}
+
+.arrow{
+    font-family: open-sans-bold;
+    z-index: 99999;
+    font-size: 30px;
+    color: white;
+    position: fixed;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    span.text{
+        padding: 0px 15px;
+    }
+}
+
+.arrow-left{
+    bottom: 5%;
+    left: 100px;
+}
+
+.arrow-right{
+    bottom: 5%;
+    right: 100px;
+}
+
+
+@keyframes fade{
+    0% {opacity: 0.4;}
+    100% {opacity: 1;}
+}
+
+@media (max-width:550px) {
+
+    .gallery-wrapper{
+        width: 100vw;
+        height: 70vh;
+        .slide.flip{
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+    }
+
+    .bullets-container{
+        display: none;
+    }
+
+    .arrow{
+        font-size: 24px;
+        svg{
+            display: none;
+        }
+    }
+
+    .arrow-left{
+        bottom: 5%;
+        left: 10px;
+    }
+    
+    .arrow-right{
+        bottom: 5%;
+        right: 10px;
+    }
+
+}
