@@ -1,1 +1,1 @@
-## Responsive Movies App Created with React and Redux.
+Responsive Movies App Created with React and Redux.
