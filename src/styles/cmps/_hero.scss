@@ -38,7 +38,7 @@
             margin-top: 2em;
             //Heros Btns
             & > div{
-                font-size: 0.8rem;
+                font-size: 1rem;
                 text-align: center;
                 cursor: pointer;
                 outline: none;
@@ -48,6 +48,11 @@
                 background-color: var(--color-secondary);
                 color: black;
                 padding: .5rem 2rem;
+                border-radius: 20px;
+                transition: all 0.3s linear;
+                &:hover{
+                    opacity: 0.6;
+                }
                 &:first-child{
                     color: white;
                     background-color: var(--color-logo);
